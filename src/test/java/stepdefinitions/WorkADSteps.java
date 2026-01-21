@@ -1,15 +1,11 @@
 package stepdefinitions;
 
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideElement;
 import datatest.ScenarioContext;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byAttribute;
-import static com.codeborne.selenide.Selenide.$;
 
 public class WorkADSteps {
 
@@ -19,7 +15,6 @@ public class WorkADSteps {
         this.scenarioContext = context;
     }
 
-    private SelenideElement ad = $(By.xpath(".//div[@class='card']"));
 
     @When("open page create new AD")
     public void openCreateADPage(){
@@ -41,9 +36,7 @@ public class WorkADSteps {
         int price = (int) scenarioContext.getContext("randomPrice");
         StartPage startPage = new StartPage();
         startPage.searchAd(name, price);
-        ad
-                .shouldBe(visible)
-                .find(byAttribute("alt", name)).shouldBe(visible).parent().click();
+        startPage.checkADClick(name);
     }
 
     @When("open editing ad")
@@ -65,9 +58,7 @@ public class WorkADSteps {
         int price = (int) scenarioContext.getContext("randomPrice");
         StartPage startPage = new StartPage();
         startPage.searchAd(editName, price);
-        ad
-                .shouldBe(visible)
-                .find(byAttribute("alt", editName)).shouldBe(visible).parent();
+        startPage.checkAD(editName);
     }
 
     @When("del ad")
@@ -82,9 +73,7 @@ public class WorkADSteps {
         int price = (int) scenarioContext.getContext("randomPrice");
         StartPage startPage = new StartPage();
         startPage.searchAd(name, price);
-        ad
-                .shouldBe(visible)
-                .find(byAttribute("alt", name)).shouldBe(visible).parent();
+        startPage.checkAD(name);
 
     }
 
@@ -94,8 +83,6 @@ public class WorkADSteps {
         int price = (int) scenarioContext.getContext("randomPrice");
         StartPage startPage = new StartPage();
         startPage.searchAd(name, price);
-        ad
-                .shouldNotBe(visible)
-                .find(byAttribute("alt", name)).shouldNotBe(visible).parent();
+        startPage.checkDelAD(name);
     }
 }

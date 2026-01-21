@@ -1,7 +1,6 @@
 package stepdefinitions;
 
 import api.UserAPI;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import datatest.ScenarioContext;
 import io.cucumber.java.en.Given;

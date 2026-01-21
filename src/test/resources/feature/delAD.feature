@@ -1,5 +1,5 @@
-Feature: Editing AD
-  Scenario: Editing AD
+Feature: Delete AD
+  Scenario: Delete AD
     Given reg new user API
     Given open enterPage
     When Auth user

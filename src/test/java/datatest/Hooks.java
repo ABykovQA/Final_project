@@ -18,6 +18,7 @@ public class Hooks {
 
     @Before
     public void setUp(){
+        System.out.println("Подготовка окружения перед сценарием...");
         Faker faker = new Faker(new Locale("en"));
         String randomName = faker.commerce().productName();
         int randomPrice = faker.number().numberBetween(1, 10000);
@@ -35,9 +36,8 @@ public class Hooks {
 
     @After
         public void tearDown() {
-        System.out.println("Tearing down the scenario.");
+        System.out.println("Очистка окружения после сценария...");
         ScenarioContext.clear();
         Selenide.closeWebDriver();
-        System.out.println("Browser closed.");
     }
 }

@@ -1,4 +1,4 @@
-package stepDefinitions;
+package api;
 
 public class User {
     public String getEmail() {

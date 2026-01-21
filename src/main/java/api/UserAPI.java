@@ -1,6 +1,7 @@
-package stepDefinitions;
+package api;
 
 import io.restassured.response.Response;
+import stepdefinitions.BaseHttpClient;
 
 import java.util.Map;
 

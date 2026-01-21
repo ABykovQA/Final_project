@@ -1,5 +1,6 @@
-package stepDefinitions;
+package stepdefinitions;
 
+import api.URL;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.ErrorLoggingFilter;
 import io.restassured.filter.log.RequestLoggingFilter;
